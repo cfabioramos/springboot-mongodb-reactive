@@ -13,7 +13,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 public class PlaylistRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> route(PlaylistHandler handler){
+    public RouterFunction<ServerResponse> route(PlaylistHandler handler) {
         return RouterFunctions
                 .route(RequestPredicates.GET("/playlistrouter").and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::findAll)
                 .andRoute(RequestPredicates.GET("/playlistrouter/{id}").and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), handler::findById)

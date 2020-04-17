@@ -10,6 +10,8 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
+import java.util.Date;
+
 @Component
 public class PlaylistHandler {
 
@@ -17,6 +19,14 @@ public class PlaylistHandler {
     PlaylistService service;
 
     public Mono<ServerResponse> findAll(ServerRequest request) {
+        try{
+            System.out.println("VAI DORMIR... " + new Date() + " Thread: " + Thread.currentThread().getName());
+            Thread.sleep(10000);
+            System.out.println("ACORDOU... " + new Date() + " Thread: " + Thread.currentThread().getName());
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return ServerResponse.ok()
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(service.findAll(), Playlist.class);
