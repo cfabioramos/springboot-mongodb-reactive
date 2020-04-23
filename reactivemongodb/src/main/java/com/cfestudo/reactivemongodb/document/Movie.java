@@ -10,9 +10,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 @Data
 @AllArgsConstructor
-public class Playlist {
+public class Movie {
     @Id
     private String id;
     @NonNull
-    private String name;
+    private String title;
 }

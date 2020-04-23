@@ -2,17 +2,19 @@ package com.cfestudo.reactivemongodb.document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document
 @Data
 @AllArgsConstructor
-public class Playlist {
+public class MovieEvent {
     @Id
-    private String id;
+    private String movieId;
     @NonNull
-    private String name;
+    private Date dateViewed;
+
 }

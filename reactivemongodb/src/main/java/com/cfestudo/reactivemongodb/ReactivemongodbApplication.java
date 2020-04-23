@@ -1,6 +1,8 @@
 package com.cfestudo.reactivemongodb;
 
+import com.cfestudo.reactivemongodb.document.Movie;
 import com.cfestudo.reactivemongodb.document.Playlist;
+import com.cfestudo.reactivemongodb.repository.MovieRepository;
 import com.cfestudo.reactivemongodb.repository.PlaylistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +22,9 @@ public class ReactivemongodbApplication {
 
 	@Autowired
 	private PlaylistRepository playlistRepository;
+	@Autowired
+	private MovieRepository movieRepository;
+
 	@EventListener(ApplicationReadyEvent.class)
 	public void run() {
 //		this.playlistRepository.deleteAll()
@@ -30,9 +35,14 @@ public class ReactivemongodbApplication {
 //								.flatMap(playlistRepository::save))
 //				.subscribe(System.out::println);
 
-		System.out.println(this.playlistRepository.findAll().subscribe(System.out::println));
-		System.out.println("VAI LOCALIZAR POR NOME: ");
-		System.out.println(this.playlistRepository.findByName("Github").subscribe(System.out::println));
+//		this.movieRepository.deleteAll().thenMany(
+//			Flux.just("Back to the Future", "Matrix", "Anime", "Hollywood", "Capone", "The Eddy",
+//					"Parasite", "Joker", "The Platform", "La Casa de Papel", "Coringa", "The Avengers",
+//					"Lion King", "Spiderman", "As Golpistas", "Money Heist")
+//					.map(name -> new Movie(UUID.randomUUID().toString(), name))
+//					.flatMap(movieRepository::save))
+//				.thenMany(movieRepository.findAll())
+//				.subscribe(System.out::println);
 	}
 
 }
