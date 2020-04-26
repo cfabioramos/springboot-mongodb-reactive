@@ -1,7 +1,5 @@
 package com.cfestudo.reactivemongodb;
 
-import com.cfestudo.reactivemongodb.document.Movie;
-import com.cfestudo.reactivemongodb.document.Playlist;
 import com.cfestudo.reactivemongodb.repository.MovieRepository;
 import com.cfestudo.reactivemongodb.repository.PlaylistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +7,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
-import reactor.core.publisher.Flux;
-
-import java.util.UUID;
 
 @SpringBootApplication
 public class ReactivemongodbApplication {
@@ -27,6 +22,10 @@ public class ReactivemongodbApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	public void run() {
+/*
+	FlatMap transform the elements emitted by the Flux asynchronously into Publishers,
+	then flatten these inner publishers into a single Flux through merging.
+ */
 //		this.playlistRepository.deleteAll()
 //				.thenMany(
 //						Flux.just("API Rest Spring Boot", "Deploy de uma aplicação Java no IBM Cloud",

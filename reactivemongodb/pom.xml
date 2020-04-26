@@ -79,7 +79,7 @@
 					<argLine>--enable-preview</argLine>
 				</configuration>
 			</plugin>
-		</plugins>
+        </plugins>
 	</build>
 
 </project>
